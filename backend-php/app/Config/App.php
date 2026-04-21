@@ -160,6 +160,11 @@ class App extends BaseConfig
     public bool $forceGlobalSecureRequests = false;
 
     /**
+     * Session Hijacking Prevention: Set session cookie attributes
+     */
+    public bool $sessionCookieSecure = true;
+
+    /**
      * --------------------------------------------------------------------------
      * Reverse Proxy IPs
      * --------------------------------------------------------------------------
