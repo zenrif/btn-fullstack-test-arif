@@ -1,6 +1,4 @@
 <?php
-// app/Filters/AuthFilter.php
-// Middleware untuk melindungi route yang membutuhkan autentikasi
 
 namespace App\Filters;
 
@@ -13,12 +11,16 @@ class AuthFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         if (!session()->get('is_logged_in')) {
-            return redirect()->to('/auth/login')->with('error', 'Silakan login terlebih dahulu.');
+            return redirect()
+                ->to('/login')
+                ->with('error', 'Silakan login terlebih dahulu.');
         }
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        // Tidak ada aksi post-response
+        $response->setHeader('X-Frame-Options', 'DENY');
+        $response->setHeader('X-Content-Type-Options', 'nosniff');
+        $response->setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
     }
 }

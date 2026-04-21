@@ -12,7 +12,7 @@ class UserModel extends Model
 
     // password TIDAK ada di allowedFields agar tidak bisa diset sembarangan
     // dari luar — harus selalu melalui method setPassword()
-    protected $allowedFields = ['username', 'password_hash'];
+    protected $allowedFields = ['username', 'password', 'password_hash'];
     protected $useTimestamps = true;
 
     /**
@@ -40,9 +40,15 @@ class UserModel extends Model
     public function attemptLogin(string $username, string $plainPassword): object|null
     {
         $user = $this->where('username', $username)->first();
+        if (!$user) {
+            return null;
+        }
 
-        if (!$user || !password_verify($plainPassword, $user['password_hash'])) {
-            return null; // Pesan error dibuat generik — jangan bocorkan apakah username atau password yang salah
+        // Deteksi apakah nama kolom di table adalah 'password' atau 'password_hash'
+        $hashFromDb = $user['password_hash'] ?? $user['password'] ?? null;
+
+        if (!$hashFromDb || !password_verify($plainPassword, $hashFromDb)) {
+            return null; // Pesan error dibuat generik
         }
 
         return (object) $user;

@@ -5,11 +5,9 @@ export function useProductSearch(products) {
 
     const filteredProducts = useMemo(() => {
         const trimmedQuery = searchQuery.trim().toLowerCase();
-
         if (!trimmedQuery) return products;
-
         return products.filter(({ name }) =>
-        name.toLowerCase().includes(trimmedQuery),
+            name.toLowerCase().includes(trimmedQuery),
         );
     }, [searchQuery, products]);
 
