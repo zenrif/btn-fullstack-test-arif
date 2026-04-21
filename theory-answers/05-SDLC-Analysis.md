@@ -1,6 +1,6 @@
 # Soal 5 — SDLC: Perbedaan Waterfall dan Agile dalam Pengembangan Perangkat Lunak
 
-Saya akan menjelaskan perbedaan keduanya bukan dari sudut pandang definisi textbook, melainkan dari perspektif bisnis dan manajemen proyek — karena di situlah perbedaan keduanya paling terasa secara nyata.
+Saya akan menjelaskan perbedaan keduanya bukan dari sudut pandang definisi textbook, melainkan dari perspektif bisnis dan manajemen proyek, karena di situlah perbedaan keduanya paling terasa secara nyata.
 
 ---
 
