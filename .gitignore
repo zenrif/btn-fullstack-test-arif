@@ -1,3 +1,32 @@
+## DEPENDENCIES
 node_modules/
 vendor/
+
+## SECRETS & ENVIRONMENT
 .env
+.env.*
+!.env.example
+
+## BUILD ARTIFACTS (Frontend React / Vite)
+dist/
+dist-ssr/
+*.local
+
+## PHP & CODEIGNITER 4 CACHE/LOGS
+backend-php/writable/cache/*
+backend-php/writable/logs/*
+backend-php/writable/session/*
+backend-php/writable/debugbar/*
+!backend-php/writable/cache/.gitkeep
+!backend-php/writable/logs/.gitkeep
+!backend-php/writable/session/.gitkeep
+
+## OS & IDE SPESIFIC (Kotoran Lokal)
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
